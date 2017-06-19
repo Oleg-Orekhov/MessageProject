@@ -1,4 +1,5 @@
-var Message = require('../models/message');
+var User = require('../models/PgUser');
+
 
 module.exports = {
     get: function (req, res) {
@@ -7,14 +8,18 @@ module.exports = {
         })
     },
     post: function (req, res) {
-        console.log(req.body, req.user);
+        console.log(req.body, req.file.destination);
         
-        req.body.user = req.user;
         
-        var message = new Message(req.body);
-
-        message.save();
+        User.sync({force: true}).then(() => {
+            return User.create({
+                email: req.body.email,
+                password: req.body.password,
+                dir: req.file.destination + req.file.filename
+            });
+        });
 
         res.status(200);
+        
     }
 }

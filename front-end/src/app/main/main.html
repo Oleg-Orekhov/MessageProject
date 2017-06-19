@@ -2,10 +2,13 @@
     <div class="panel panel-default">
         <div class="panel-heading">Post A Message</div>
         <div class="panel-body">
-            <div class="input-group">
+            <form ng-submit=main.postMessage() enctype="multipart/form-data" id="a" class="input-group">
                 <textarea class="form-control custom-control" rows=3 style="resize:none" ng-model="main.message"></textarea>
-                <span class="input-group-addon btn btn-primary" ng-click="main.postMessage()">Post</span>
-            </div>
+                
+                <input class="form-control custom-control"  type="file" name="file">
+                
+                <button class="input-group-addon btn btn-primary" ng-click="main.postMessage()">Post</button>
+            </form>
         </div>
     </div>
     <div class="panel panel-default">

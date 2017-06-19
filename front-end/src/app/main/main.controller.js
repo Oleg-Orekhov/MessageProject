@@ -14,7 +14,18 @@ export class MainController {
     }
 
     postMessage() {
-        this.$http.post('http://localhost:5000/api/message', {msg: this.message});
+        //this.$http.post('http://localhost:5000/api/message', {msg: this.message});
+        var fd = new FormData();
+        fd.append('file', myFile);
+        fd.append('msg',this.message);
+        this.$http.post('http://localhost:5000/api/message', fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .success(function(){
+        })
+        .error(function(){
+        });
     }
 
 }
