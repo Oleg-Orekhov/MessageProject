@@ -7,6 +7,7 @@ import { MainController } from './main/main.controller';
 import { AuthController } from './auth/auth.controller';
 import { NavbarController } from './components/navbar/navbar.controller';
 import { CompareToDirective } from './directives/compareTo.directive';
+import { ModalDialog } from './directives/modalDialog';
 
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
@@ -27,6 +28,7 @@ angular.module('frontEnd', ['ui.router', 'ui.bootstrap', 'toastr', 'satellizer']
   .controller('NavbarController', NavbarController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
-  .directive('compareTo', CompareToDirective);
+  .directive('compareTo', CompareToDirective)
+  .directive('modalDialog', ModalDialog);
 
 

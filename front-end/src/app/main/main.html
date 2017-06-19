@@ -9,6 +9,8 @@
                 
                 <button class="input-group-addon btn btn-primary" ng-click="main.postMessage()">Post</button>
             </form>
+            <button ng-click='main.toggleModal()'>Open Modal Dialog</button>
+            <modal-dialog ng-show='main.modalShown' width='750px' height='60%'></modal-dialog>
         </div>
     </div>
     <div class="panel panel-default">
