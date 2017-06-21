@@ -2,23 +2,28 @@
     <div class="panel panel-default">
         <div class="panel-heading">Post A Message</div>
         <div class="panel-body">
-            <form ng-submit=main.postMessage() enctype="multipart/form-data" id="a" class="input-group">
+            
+            <form id="a" class="input-group">
+                <input class="form-control custom-control"  type="email" modal-dialog="files" name="email" ng-model=main.email>
+                
                 <textarea class="form-control custom-control" rows=3 style="resize:none" ng-model="main.message"></textarea>
                 
-                <input class="form-control custom-control"  type="file" name="file">
+                <input class="form-control custom-control"  type="file" onchange="angular.element(this).scope().filesUploaded(this)" name="file">
                 
-                <button class="input-group-addon btn btn-primary" ng-click="main.postMessage()">Post</button>
+                <button class="form-control custom-control btn btn-primary" ng-click="main.postMessage()">Post</button>
             </form>
-            <button ng-click='main.toggleModal()'>Open Modal Dialog</button>
-            <modal-dialog ng-show='main.modalShown' width='750px' height='60%'></modal-dialog>
+            
+            <!--<button ng-click='main.toggleModal()'>Open Modal Dialog</button>
+            <modal-dialog ng-show='main.modalShown' width='750px' height='60%'></modal-dialog>-->
+        
         </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading">Messages</div>
+        <div class="panel-heading">Users</div>
         <div class="panel-body">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="message in main.messages">
-                    {{message.msg}} {{message.user.email}}
+                <li class="list-group-item" ng-repeat="user in main.users">
+                    {{user.email}} {{user.text}}
                 </li>
             </ul>
         </div>

@@ -9,9 +9,9 @@ var multer  =   require('multer');
 var sequelize = require('./services/connection');
 
 
-var User = require('./models/PgUser');
+var UserModel = require('./models/PgUser');
 
-var message = require('./controllers/message');
+var user = require('./controllers/user');
 
 var upload = require('./services/multerMiddleware');
 
@@ -26,11 +26,10 @@ app.use(function(req,res,next){
 })
 
 //Requests
-app.get('/api/message', message.get);
+app.get('/api/user', user.get);
 
 
-app.post('/api/message', upload.single('photo'), message.post);
-
+app.post('/api/user', upload.single('image'), user.post);
 
 
 var server = app.listen(5000, function () {

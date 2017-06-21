@@ -17,7 +17,7 @@ export function ModalDialog() {
           if (attrs.height)
             scope.dialogStyle.height = attrs.height;
           this.hideModal = function() {
-              console.log('what');
+              console.log('hideModal');
             scope.show = false;
           };
         },
